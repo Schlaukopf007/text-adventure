@@ -73,6 +73,9 @@ public class Main {
                     } else if (input.equals("gehe Norden")) {
                         aktuellerOrt = "Wald";
                         System.out.println("Geh in den Wald und sammle Beeren !");
+                    } else if (input.equals("beeren sammeln")) {
+                        hatBeeren = true;
+                        System.out.println("Du hast 10 Beeren gesammelt.");
                         /*aktuellerOrt = "Schule";
                         System.out.println("Du bist nun in der Schule. ");*/
                     } else if (input.equals("untersuche")) {
@@ -86,10 +89,7 @@ public class Main {
                             System.out.println("Was willst du tun ?('beeren sammeln' / 'axt kaufen' /'axt benutzen')");
                             String aktion2 = scanner.nextLine().toLowerCase();
 
-                            if (aktion2.equals("beeren sammeln")) {
-                                hatBeeren = true;
-                                System.out.println("Du hast 10 Beeren gesammelt.");
-                            } else if (aktion2.equals("axt kaufen")) {
+                            if (aktion2.equals("axt kaufen")) {
                                 System.out.println("Geh zum Marktplatz und verkaufe deine Beeren für Gold.");
                             } else if (aktion2.equals("axt benutzen")) {
                                 if (hatAxt) {
@@ -100,9 +100,9 @@ public class Main {
                                     String aktion3 = scanner.nextLine().toLowerCase();
 
                                     if (aktion3.equals("gegen den Kobold kämpfen")) {
-                                        aktuellerOrt = "Höhle";
-                                        koboldPlatt = true;
-                                        System.out.println("Du kämpfst gegen den Kobold und machst ihn platt !!\nAus dem Hut des platten Kobolds fliegt ein Schlüssel raus !");
+                                    aktuellerOrt = "Höhle";
+                                    koboldPlatt = true;
+                                    System.out.println("Du kämpfst gegen den Kobold und machst ihn platt !!\nAus dem Hut des platten Kobolds fliegt ein Schlüssel raus !");
                                     } else if (aktion3.equals("davon laufen")) {
                                         System.out.println("GAME OVER.....GAME OVER.....GAME OVER");
                                         spielen = false;
@@ -126,10 +126,11 @@ public class Main {
                         }
                     }
                     break;
-                case "Marktplatz":
-                    if (input.equals("gehe Norden")) {
-                        aktuellerOrt = "Dorf";
-                        System.out.println("Du bist im Dorf.");
+
+            case "Marktplatz":
+                if (input.equals("gehe Norden")) {
+                    aktuellerOrt = "Dorf";
+                    System.out.println("Du bist im Dorf.");
                     } else if (input.equals("untersuche")) {
                         if (hatBeeren) {
                             System.out.println("Der Beerenmann hat dir deine Beeren abgekauft. Du bekommst dafür 10 Gold.");
@@ -138,9 +139,9 @@ public class Main {
                         } else {
                             System.out.println("Du hast keine Beeren dabei. Ich kann dir kein Gold geben.");
                         }
-                    } else {
+                    } /*else {
                         System.out.println("Hier kannst du nur nach Norden gehen.");
-                    }
+                    }*/
                     break;
             }
         }
